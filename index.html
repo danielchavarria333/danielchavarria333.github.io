@@ -23,6 +23,7 @@
         loadingFunction =  () => System.import('cc-solicitud-credito-mf');
         console.log('loading function' , loadingFunction);
 		System.import('single-spa').then( (singleSpa) => {
+            console.log('single-spa' , singleSpa);
 			singleSpa.registerApplication(
 				'cc-solicitud-credito-mf',
 				() => System.import('cc-solicitud-credito-mf'),
@@ -34,7 +35,7 @@
 	</script>
 </head>
 <body>
-    <h1>INDEX DE PRUEBA - defer</h1>
+    <h1>INDEX DE PRUEBA - console de singlespa</h1>
     <div id="single-spa-application:cc-solicitud-credito-mf"></div>
 </body>
 </html>

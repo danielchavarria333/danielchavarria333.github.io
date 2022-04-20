@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <meta name="importmap-type" content="systemjs-importmap">
+    <meta defer name="importmap-type" content="systemjs-importmap">
 	<script type="systemjs-importmap">
         {
                 "imports": {
@@ -19,7 +19,7 @@
 	<!-- load SystemJS itself from CDN -->
 	<script src="https://cdn.jsdelivr.net/npm/systemjs@6.12.1/dist/system.js" integrity="sha384-YJ0l/g6JDrwSLAJeFT8ZFQAjXVG8sNLbIpMpbU+8TvFyPgDqxG71FynzUFfRsc13" crossorigin="anonymous"></script>
 
-    <script>
+    <script defer>
         loadingFunction =  () => System.import('cc-solicitud-credito-mf');
         console.log('loading function' , loadingFunction);
 		System.import('single-spa').then( (singleSpa) => {

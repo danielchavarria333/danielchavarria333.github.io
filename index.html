@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="importmap-type" content="systemjs-importmap">
+	<script type="systemjs-importmap">
+        {
+                "imports": {
+                    "cc-solicitud-credito-mf": "http://localhost:4201/main.js",
+                    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa/lib/system/single-spa.min.js"
+                }
+            }
+    </script>
+	<!-- load NgZone - Angular -->
+	<script src="https://unpkg.com/zone.js@0.11.5/bundles/zone.umd.js" integrity="sha384-mQePkBFjBz2+homHs3sPUrMlXtmVh4kIqveoQKZxZ5/CV7nWr0Wj1j54brfnMzjD" crossorigin="anonymous"></script>
+	<!-- load SystemJS itself from CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/systemjs@6.12.1/dist/system.js" integrity="sha384-YJ0l/g6JDrwSLAJeFT8ZFQAjXVG8sNLbIpMpbU+8TvFyPgDqxG71FynzUFfRsc13" crossorigin="anonymous"></script>
+
+    <script>
+        loadingFunction =  () => System.import('cc-solicitud-credito-mf');
+        console.log('loading function' , loadingFunction);
+		System.import('single-spa').then( (singleSpa) => {
+			singleSpa.registerApplication(
+				'cc-solicitud-credito-mf',
+				() => System.import('cc-solicitud-credito-mf'),
+				(location) => true      
+			);
+		
+			singleSpa.start();
+		});
+	</script>
+</head>
+<body>
+    <div id="single-spa-application:cc-solicitud-credito-mf"></div>
+</body>
+</html>
